@@ -1,4 +1,7 @@
 
+#include <bits/stdc++.h>
+using namespace std;
+
 int countPainters(vector<int> &boards, int time) {
     int n = boards.size(); //size of array.
     int painters = 1;
@@ -33,3 +36,4 @@ int findLargestMinDistance(vector<int> &boards, int k) {
     }
     return low;
 }
+
