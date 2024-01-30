@@ -1,30 +1,45 @@
-#include <bits/stdc++.h>
+//using 2 pointer 
+vector < int > sortedArray(vector < int > a, vector < int > b) {
+   int n1 = a.size();
+   int n2 = b.size();
 
-vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n) {
-int i = 0; 
-int j = 0;
-vector<int>result;
+   vector<int>answer;
+   int i = 0; 
+   int j = 0; 
+   
+   while(i<n1 && j<n2){
 
-while(i<m && j<n){
-	if(arr1[i]<=arr2[j]){
-		result.push_back(arr1[i]);
-		i++;
-	}
-	else{
-		result.push_back(arr2[j]);
-		j++;
-	}
+     if(a[i]<=b[j]){
+         if( answer.size()==0 ||answer.back()!= a[i]){
+             answer.push_back(a[i]);
+        }
+        i++;
+     }
+
+     else{
+         if( answer.size()==0 ||answer.back()!= b[j]){
+             answer.push_back(b[j]);
+        }
+        j++;
+     }
+
+   }
+
+while(i<n1){
+if( answer.size()==0 || answer.back()!= a[i]){
+             answer.push_back(a[i]);
+        }
+        i++;
+
 }
 
-while(i<m){
-	result.push_back(arr1[i]);
-	i++;
-}
 
-while(j<n){
-	result.push_back(arr2[j]);
-	j++;
-}
+   while(j<n2){
+ if( answer.size()==0 || answer.back()!= b[j]){
+             answer.push_back(b[j]);
+        }
+        j++;
+   }
 
-return result;
+   return answer;
 }
